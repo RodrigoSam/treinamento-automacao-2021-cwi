@@ -19,15 +19,13 @@ public class HomePage extends HomePageElementMapper {
 
     public void clickSearchQueryTop(){
         search_query_top.click();
-
     }
 // sendKeys usado para passar a string da busca
+
     public void sendKeysSearchQueryTop(String keys){
         search_query_top.sendKeys(keys);
 
-
     }
-
 
     public void clickSubmitSearch(){
         submit_search.click();
@@ -41,4 +39,8 @@ public class HomePage extends HomePageElementMapper {
         clickSubmitSearch();
     }
 
+    public void clickCategoryTShirts(){
+        menuTShirts.click();
+
+    }
 }

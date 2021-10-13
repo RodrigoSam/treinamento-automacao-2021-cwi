@@ -4,6 +4,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import pageObjects.CategoryPage;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.SearchPage;
@@ -28,13 +29,15 @@ public class setupTest extends baseTests {
     public void testLogin(){
 //Iniciar teste
         HomePage home = new HomePage();
+        LoginPage login = new LoginPage();
+
         home.clickButonlogin();
         System.out.println("clicou Sign in e direcionou para página de login ok");
         assertTrue(Browser.getCurrentDriver().getCurrentUrl()
         .contains(Utils.getBaseUrl().concat("index.php?controller=authentication&back=my-account")));
         System.out.println("validaçao da página authenticantion ok");
 
-        LoginPage login = new LoginPage();
+
         login.fillEmail();
         System.out.println("Preenchimento campo e-mail Ok");
 
@@ -74,6 +77,24 @@ public class setupTest extends baseTests {
         assertEquals(search.getTextLighter().replace("\"",""),quest);
         assertEquals(search.getTextHeadingCounter(),questResultQtd);
         System.out.println("Validação ok");
+
+    }
+
+    @Test
+    public void testAcessCategoryTShirts(){
+        //iniciar as páginas
+
+        HomePage home = new HomePage();
+        CategoryPage category = new CategoryPage();
+
+        //clicar na categoria T-Shirts
+
+        home.clickCategoryTShirts();
+        System.out.println("clicar na categoria T-shirts ok");
+
+        //Validar se ao clicar na categoria T-Shirts ocorre o direcionamento correto
+        assertTrue(category.isPageTshirts());
+        System.out.println("validou a pagina T-Shirts ok");
 
     }
 

@@ -12,4 +12,8 @@ public class HomePageElementMapper {
 
     public WebElement submit_search;
 
+    @FindBy(linkText = "T-SHIRTS")
+    //(css = "#block_top_menu ul > li:nth-child(3) a[title=T-shirts]")
+    public WebElement menuTShirts;
+
 }
