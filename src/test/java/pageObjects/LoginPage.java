@@ -21,7 +21,7 @@ public class LoginPage extends LoginPageElementMapper {
 }
 
     public void clickbtnSubmitLogin(){
-        submitLogin.click();
+        SubmitLogin.click();
 
     }
 

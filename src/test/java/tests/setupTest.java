@@ -1,15 +1,19 @@
 package tests;
 
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.SearchPage;
 import utils.Browser;
 import utils.Utils;
 
+import java.math.MathContext;
 import java.sql.SQLOutput;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class setupTest extends baseTests {
 
@@ -50,4 +54,27 @@ public class setupTest extends baseTests {
 
 
     }
+
+    @Test
+    public void testSearch(){
+        String quest = "DRESS";
+        String questResultQtd = "7 results have been found.";
+
+
+        //Iniciar as páginas
+        HomePage home = new HomePage();
+        SearchPage search = new SearchPage();
+
+        //Fazer a pesquisa
+        home.doSearch(quest);
+        System.out.println("Busca ok");
+
+        //Validar a pesquisa
+        assertTrue(search.isSearchPage());
+        assertEquals(search.getTextLighter().replace("\"",""),quest);
+        assertEquals(search.getTextHeadingCounter(),questResultQtd);
+        System.out.println("Validação ok");
+
+    }
+
 }
