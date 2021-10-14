@@ -1,13 +1,11 @@
 package tests;
 
+import com.sun.xml.internal.xsom.XSUnionSimpleType;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import pageObjects.CategoryPage;
-import pageObjects.HomePage;
-import pageObjects.LoginPage;
-import pageObjects.SearchPage;
+import pageObjects.*;
 import utils.Browser;
 import utils.Utils;
 
@@ -96,6 +94,31 @@ public class setupTest extends baseTests {
         assertTrue(category.isPageTshirts());
         System.out.println("validou a pagina T-Shirts ok");
 
+
+    }
+
+    @Test
+    public void testAddProductToProductPage(){
+        //Iniciar as páginas
+        CategoryPage category = new CategoryPage();
+        ProductPage pdp = new ProductPage();
+
+        //Salva nome do produto na página de categoria
+        String nameProductCategory = category.getProductNameCategory();
+
+        //Acessa a categoria T-shirts
+        testAcessCategoryTShirts();
+
+        //Clicar em More e direcionar para página do produto
+        category.clickProductAddToProductPage();
+        System.out.println("Clicar no botão More ok");
+
+        // category.clickTheShort();
+        System.out.println("clicar no produto ok");
+
+        //Verificar se o produto está na página de detalhes do produto
+        assertTrue(pdp.getProductNamePdp().equals(nameProductCategory));
+        System.out.println("verificar se o produto está na página ok");
     }
 
 }

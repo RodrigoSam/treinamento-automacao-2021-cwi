@@ -21,5 +21,17 @@ public class CategoryPage extends CategoryPageElementMapper {
         return nameCategoryTShirts.getText();
 
     }
+    public void clickTheShort(){
+        product.click();
+    }
+
+    public void clickProductAddToProductPage(){
+        BasePage.mouseOver(productNameCategory);
+        buttonMoreAddToProductPage.click();
+    }
+
+    public String getProductNameCategory(){
+        return productNameCategory.getText();
+    }
 
 }
