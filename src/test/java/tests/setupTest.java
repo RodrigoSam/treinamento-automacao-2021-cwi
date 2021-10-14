@@ -121,4 +121,39 @@ public class setupTest extends baseTests {
         System.out.println("verificar se o produto está na página ok");
     }
 
+    @Test
+    public void testAddProductToCartPage(){
+        //Acessa a página do produto
+        testAddProductToProductPage();
+
+        //Iniciar as páginas
+        ProductPage pdp = new ProductPage();
+        String nameProductPDP = pdp.getProductNamePdp();
+        CartPage cart = new CartPage();
+
+        //Clicar no botão add to cart da página de produto
+
+        pdp.clickButtonAddToCart();
+        System.out.println("clicar no botão de adicionar ao carro ok");
+
+        //Clicar no botão Proceed To Checkout no modal
+
+        pdp.clickButtonModalProceedToCheckout();
+        System.out.println("clicar no botão checkout ok");
+
+        //Validação do nome do produto no carrinho
+        assertTrue(cart.getNameProductCart().equals(nameProductPDP));
+        System.out.println("Produto no carrrinho ok");
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
