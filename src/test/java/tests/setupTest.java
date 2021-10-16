@@ -1,35 +1,32 @@
 package tests;
 
-import com.sun.xml.internal.xsom.XSUnionSimpleType;
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pageObjects.*;
 import utils.Browser;
 import utils.Utils;
 
-import java.math.MathContext;
-import java.sql.SQLOutput;
-
 import static org.junit.Assert.*;
-
+@Feature("Testes site de e-commerce")
 public class setupTest extends baseTests {
 
     @Test
-    public void testOpeningBrowserAndloadingPage(){
+    @Story("Abrir o site")
+    public void testOpeningBrowserAndLoadingPage(){
         assertTrue(Browser.getCurrentDriver().getCurrentUrl().contains(Utils.getBaseUrl()));
         System.out.println("Abrimos o navegador e carregamos a Url com sucesso");
     }
 
     @Test
-
+    @Story("Realizar o login")
     public void testLogin(){
 //Iniciar teste
         HomePage home = new HomePage();
         LoginPage login = new LoginPage();
 
-        home.clickButonlogin();
+        home.clickButonLogin();
         System.out.println("clicou Sign in e direcionou para página de login ok");
         assertTrue(Browser.getCurrentDriver().getCurrentUrl()
         .contains(Utils.getBaseUrl().concat("index.php?controller=authentication&back=my-account")));
@@ -57,6 +54,7 @@ public class setupTest extends baseTests {
     }
 
     @Test
+    @Story("Fazer uma busca")
     public void testSearch(){
         String quest = "DRESS";
         String questResultQtd = "7 results have been found.";
@@ -79,6 +77,7 @@ public class setupTest extends baseTests {
     }
 
     @Test
+    @Story("Acessar categoria")
     public void testAcessCategoryTShirts(){
         //iniciar as páginas
 
@@ -98,6 +97,7 @@ public class setupTest extends baseTests {
     }
 
     @Test
+    @Story("Acessar página de produto")
     public void testAddProductToProductPage(){
         //Iniciar as páginas
         CategoryPage category = new CategoryPage();
@@ -122,6 +122,7 @@ public class setupTest extends baseTests {
     }
 
     @Test
+    @Story("Adicionar produto carrinho")
     public void testAddProductToCartPage(){
         //Acessa a página do produto
         testAddProductToProductPage();
