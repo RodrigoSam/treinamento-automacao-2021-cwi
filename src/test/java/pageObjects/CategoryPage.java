@@ -11,18 +11,14 @@ public class CategoryPage extends CategoryPageElementMapper {
 
     }
 
-    public boolean isPageTshirts(){
+    public boolean isPageTShirts(){
         return getAuthenticationPageTShirts().contains("T-SHIRTS");
 
     }
-
     public String getAuthenticationPageTShirts(){
 
         return nameCategoryTShirts.getText();
 
-    }
-    public void clickTheShort(){
-        product.click();
     }
 
     public void clickProductAddToProductPage(){

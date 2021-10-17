@@ -14,7 +14,7 @@ public class HomePage extends HomePageElementMapper {
 
     }
     @Step("clicou Sign in e direcionou para página de login ok")
-    public void clickButonLogin(){
+    public void clickButtonLogin(){
         login.click();
     }
 
@@ -27,19 +27,15 @@ public class HomePage extends HomePageElementMapper {
         search_query_top.sendKeys(keys);
 
     }
-
     public void clickSubmitSearch(){
         submit_search.click();
-
     }
-
     public void doSearch(String quest){
 
         clickSearchQueryTop();
         sendKeysSearchQueryTop(quest);
         clickSubmitSearch();
     }
-
     public void clickCategoryTShirts(){
         menuTShirts.click();
 

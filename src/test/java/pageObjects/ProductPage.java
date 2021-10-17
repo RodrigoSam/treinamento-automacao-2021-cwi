@@ -9,7 +9,7 @@ public class ProductPage extends ProductPageElementMapper {
     public ProductPage(){
         PageFactory.initElements(Browser.getCurrentDriver(),this);
 
-    }
+   }
 
     public String getProductNamePdp(){
         return productNamePdp.getText();

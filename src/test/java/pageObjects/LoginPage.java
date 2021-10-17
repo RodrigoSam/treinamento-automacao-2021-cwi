@@ -26,5 +26,4 @@ public class LoginPage extends LoginPageElementMapper {
     }
 
 
-
 }

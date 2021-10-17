@@ -26,12 +26,11 @@ public class setupTest extends baseTests {
         HomePage home = new HomePage();
         LoginPage login = new LoginPage();
 
-        home.clickButonLogin();
+        home.clickButtonLogin();
         System.out.println("clicou Sign in e direcionou para página de login ok");
         assertTrue(Browser.getCurrentDriver().getCurrentUrl()
         .contains(Utils.getBaseUrl().concat("index.php?controller=authentication&back=my-account")));
-        System.out.println("validaçao da página authenticantion ok");
-
+        System.out.println("validação da página authentication ok");
 
         login.fillEmail();
         System.out.println("Preenchimento campo e-mail Ok");
@@ -78,7 +77,7 @@ public class setupTest extends baseTests {
 
     @Test
     @Story("Acessar categoria")
-    public void testAcessCategoryTShirts(){
+    public void testAccessCategoryTShirts(){
         //iniciar as páginas
 
         HomePage home = new HomePage();
@@ -90,7 +89,7 @@ public class setupTest extends baseTests {
         System.out.println("clicar na categoria T-shirts ok");
 
         //Validar se ao clicar na categoria T-Shirts ocorre o direcionamento correto
-        assertTrue(category.isPageTshirts());
+        assertTrue(category.isPageTShirts());
         System.out.println("validou a pagina T-Shirts ok");
 
 
@@ -107,7 +106,7 @@ public class setupTest extends baseTests {
         String nameProductCategory = category.getProductNameCategory();
 
         //Acessa a categoria T-shirts
-        testAcessCategoryTShirts();
+        testAccessCategoryTShirts();
 
         //Clicar em More e direcionar para página do produto
         category.clickProductAddToProductPage();
@@ -117,7 +116,7 @@ public class setupTest extends baseTests {
         System.out.println("clicar no produto ok");
 
         //Verificar se o produto está na página de detalhes do produto
-        assertTrue(pdp.getProductNamePdp().equals(nameProductCategory));
+        assertEquals(pdp.getProductNamePdp(), nameProductCategory);
         System.out.println("verificar se o produto está na página ok");
     }
 
@@ -143,18 +142,9 @@ public class setupTest extends baseTests {
         System.out.println("clicar no botão checkout ok");
 
         //Validação do nome do produto no carrinho
-        assertTrue(cart.getNameProductCart().equals(nameProductPDP));
+        assertEquals(cart.getNameProductCart(), nameProductPDP);
         System.out.println("Produto no carrrinho ok");
 
     }
-
-
-
-
-
-
-
-
-
 
 }
